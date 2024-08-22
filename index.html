@@ -21,6 +21,7 @@ background-color: #0C151E;
   color:#B7C0C7;
   font-size: 25px;
   padding: 25px;
+  transition: background-color 2.0s , color 2.0s;
 }
 .dark-mode {
   background-color: #F9FDFF;
@@ -48,9 +49,9 @@ background-color: #0C151E;
   }
   button {
     margin-left: 100%;
-    background-color: auto;
+    background-color: transparent;
     border-radius: 40px;
-    .
+    
     
     
     
@@ -105,11 +106,12 @@ text-align: center;
   
   
   
+  
 </style>
 
 
 <body>
-  <button onclick="myFunction()">🔘</button>
+ <button  id="toggle-theme">☀️</button>
 <div class="id">
   <img src="brp.jpg" class="bro">
 </div>
@@ -136,15 +138,33 @@ text-align: center;
 </div>
 
 
+
 <script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggle-theme');
+    
+    toggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            toggleButton.textContent = '🌙';
+        } else {
+            toggleButton.textContent = '☀️';
+        }
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thank you for your message!');
+        this.reset();
+    });
+});
+
+   
+
 </script>
 
 </body>
 
 
 
-</html
+</html>
